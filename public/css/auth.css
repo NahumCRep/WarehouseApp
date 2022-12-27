@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: #58D68D;
+}
+
+.bg_decoration {
+    width: 100%;
+    height: 50vh;
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 50% 100%, 0 80%);
+    background-color: #ffffff;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+
+.main_container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_container {
+    width: 350px;
+    height: auto;
+    font-family: var(--primary);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px rgb(148, 148, 148);
+}
+
+.register_form {
+    width: 400px;
+    height: auto;
+    font-family: var(--primary);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px rgb(148, 148, 148);
+}
+
+.form_container_register {
+    width: min-content;
+    height: auto;
+    font-family: var(--primary);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 10px rgb(148, 148, 148);
+}
+
+.form, .form label {
+    display: flex;
+    flex-direction: column; 
+}
+
+.form {
+    gap: 20px; 
+}
+
+.form label input {
+    padding: 7px;
+    margin-top: 2px;
+    border: 2px solid #E5E7E9;
+}
+
+input:focus {
+    outline-color: #2ECC71;
+}
+
+.password_input_div {
+    width: 100%;
+    position: relative;
+}
+
+.password_input_div input {
+    width: 100%;
+    padding: 7px 1.8rem 7px 7px !important;
+}
+
+#password_eye {
+    position: absolute;
+    top: 60%;
+    right: 0.5rem;
+    transform: translateY(-60%);
+    cursor: pointer;
+    color: #85929E;
+}
+
+.eye_show {
+    color: #000;
+}
+
+.form_grid {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    gap: 10px;
+}
+
+small {
+    color: red;
+}
+
+.submit_btn {
+    outline: none;
+    border: none;
+    background-color: #2ECC71;
+    color: #186A3B;
+    font-weight: bold;
+    padding: 0.7rem;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+}
+
+.submit_btn:hover {
+    background-color: #82E0AA;
+}
+
+.register_link {
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-end;
+    color: #000;
+    transition: color 0.2s ease-in;
+}
+
+.register_link:hover {
+    color: #186A3B;
+}
