@@ -25,5 +25,6 @@ Route::view('/registro', 'register')->name('register');
 Route::post('/registro', [AuthController::class, 'register'])->name('register_user');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::view('/almacenes', 'warehouse.index')->middleware('auth')->name('warehouse');
+// Route::view('/almacenes', 'warehouse.index')->middleware('auth')->name('warehouse');
+Route::get('/almacenes', [WarehouseController::class, 'index'])->middleware('auth')->name('warehouse');
 Route::post('/almacenes', [WarehouseController::class, 'store'])->middleware('auth')->name('warehouse.store');

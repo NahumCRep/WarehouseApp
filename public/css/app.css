@@ -140,7 +140,6 @@ button {
     align-items: center;
     position: fixed;
     z-index: 500;
-
 }
 
 .modal {
@@ -148,7 +147,7 @@ button {
     background-color: #FFFFFF;
     position: relative;
     z-index: 600;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding: 1rem;
 }
 
@@ -161,6 +160,15 @@ button {
     background: none;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0;}
+}
 /* end modal component */
 
 /* index warehouse page */
@@ -212,7 +220,7 @@ small {
     outline: none;
     border: none;
     background-color: #2ECC71;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     color: #186A3B;
     font-weight: bold;
     padding: 0.7rem;

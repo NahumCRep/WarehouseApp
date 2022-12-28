@@ -41,4 +41,13 @@
             <x-warehouseCard></x-warehouseCard>
         </div>
     </section>
+    {{-- @dump($warehouses) --}}
+    @foreach ($warehouses as $warehouse)
+        <ul>
+            <li>{{$warehouse->name}}</li>
+            <li>{{$warehouse->location}}</li>
+            <li>{{$warehouse->description}}</li>
+            <li>{{$warehouse->items}}</li>
+        </ul>
+    @endforeach
 </x-layouts.app>
