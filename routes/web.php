@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Route::view('/almacenes', 'warehouse.index')->middleware('auth')->name('warehouse');
 Route::get('/almacenes', [WarehouseController::class, 'index'])->middleware('auth')->name('warehouse');
 Route::post('/almacenes', [WarehouseController::class, 'store'])->middleware('auth')->name('warehouse.store');
+Route::get('/almacenes/{warehouse}', [WarehouseController::class, 'show'])->middleware('auth')->name('warehouse.items');
+Route::post('/almacenes/{warehouse}', [ItemController::class, 'storeItem'])->middleware('auth')->name('warehouse.itemStore');
