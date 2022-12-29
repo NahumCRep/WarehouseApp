@@ -38,16 +38,9 @@
             <button class="warehouse_add_btn" id="btnAddWarehouse">
                 <i class="fa-solid fa-plus fa-2x"></i>
             </button>
-            <x-warehouseCard></x-warehouseCard>
+            @foreach ($warehouses as $warehouse)
+                <x-warehouseCard :data="$warehouse" />
+            @endforeach
         </div>
     </section>
-    {{-- @dump($warehouses) --}}
-    @foreach ($warehouses as $warehouse)
-        <ul>
-            <li>{{$warehouse->name}}</li>
-            <li>{{$warehouse->location}}</li>
-            <li>{{$warehouse->description}}</li>
-            <li>{{$warehouse->items}}</li>
-        </ul>
-    @endforeach
 </x-layouts.app>

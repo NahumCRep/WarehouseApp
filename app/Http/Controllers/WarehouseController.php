@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Warehouse;
 use App\Models\WarehouseView;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class WarehouseController extends Controller
 {
     //
     public function index() {
-        $warehouses = WarehouseView::get();
+        $user = Auth::user();
+        $warehouses = WarehouseView::where('owner', $user->email)->get();
         
         return view('warehouse.index', ['warehouses'=>$warehouses]);
     }
@@ -32,5 +34,10 @@ class WarehouseController extends Controller
         $warehouse->save();
         
         return to_route('warehouse');
+    }
+
+    public function show(Warehouse $warehouse) {
+        $items = Item::where('warehouse_id', $warehouse->id)->get();
+        return view('warehouse.items', ['warehouse' => $warehouse, 'items' => $items]);
     }
 }
