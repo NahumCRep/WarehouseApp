@@ -46,6 +46,17 @@ button {
     border-radius: 10px;
 }
 
+.warehouse_add_btn {
+    border: none;
+    background-color: #E8F8F5;
+    color: #28B463;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.warehouse_add_btn:hover {
+    background-color: #D4EFDF;
+}
+
 /* ---------------------------- */
 /* Warehouse Card */
 
@@ -214,6 +225,13 @@ input:focus, textarea:focus {
 
 small {
     color: red;
+}
+
+.form_grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 10px;
 }
 
 .submit_btn {
