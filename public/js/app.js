@@ -5,7 +5,13 @@ const modalContainer = document.querySelector('#modal_container');
 const modalXmarkBtn = document.querySelector('#xmark_btn');
 
 // warehouse items page
-const itemOpenModalBtn = document.querySelector('#itemModalBtn');
+const itemOpenModalBtn  = document.querySelector('#itemModalBtn');
+const itemForm          = document.querySelector('#itemForm');
+const itemDeleteForm    = document.querySelector('#delete_item_form');
+const tableDeleteBtns   = document.querySelectorAll('.table_delete_btn');
+const itemName          = document.querySelector('#item_name');
+const itemCode          = document.querySelector('#itemCode');
+
 
 const closeModal = () => {
     modalContainer.style.animation = 'fadeOut 0.8s forwards';
@@ -34,5 +40,19 @@ modalXmarkBtn.addEventListener('click', () => {
 });
 
 itemOpenModalBtn?.addEventListener('click', () => {
+    itemDeleteForm.style.display = 'none';
+    itemForm.style.display = 'flex';
     openModal();
 });
+
+tableDeleteBtns.forEach((tableBtn) => {
+    tableBtn.addEventListener('click', (e) => {
+        let item = JSON.parse(tableBtn.value);
+        itemForm.style.display = 'none';
+        itemDeleteForm.style.display = 'flex';
+        itemName.innerHTML = item.name;
+        itemCode.value = item.code;
+        openModal();
+    })
+});
+

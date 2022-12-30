@@ -1,5 +1,8 @@
-<x-layouts.app title="Almacenes">
+<x-layouts.app title="Almacenes" :warehouseDashboard="false">
     <x-slot name="modal">
+        <x-forms.warehouseForm />
+    </x-slot>
+    {{-- <x-slot name="modal">
         <div class="modal_bg_title">
             <i class="fa-solid fa-xl fa-warehouse"></i> 
             <span>Crear Almacen</span>
@@ -30,7 +33,7 @@
             </label>
             <button type="submit" class="submit_btn">aceptar</button>
         </form>
-    </x-slot>
+    </x-slot> --}}
 
     <section class="warehouse_section">
         <h1>Almacenes</h1>

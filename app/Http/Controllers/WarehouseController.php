@@ -40,4 +40,8 @@ class WarehouseController extends Controller
         $items = Item::where('warehouse_id', $warehouse->id)->get();
         return view('warehouse.items', ['warehouse' => $warehouse, 'items' => $items]);
     }
+
+    public function configuration(Warehouse $warehouse) {
+        return view('warehouse.configuration', ['warehouse'=>$warehouse]);
+    }
 }

@@ -19,10 +19,14 @@
     <x-modal>
         {{$modal}}
     </x-modal>
-    {{-- nav --}}
-    <x-layouts.nav />
-    {{-- main content --}}
-    {{ $slot }}
+    <div class="app_main_container">
+        {{-- nav --}}
+        <x-layouts.nav :warehouse="$warehouseDashboard" />
+        {{-- main content --}}
+        <div class="app_content">
+            {{ $slot }}
+        </div>
+    </div>
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

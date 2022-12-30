@@ -19,4 +19,9 @@ class ItemController extends Controller
 
         return to_route('warehouse.items', $request->input('warehouse'));
     }
+
+    public function deleteItem(Request $request) {
+        Item::where('code', $request->input('itemCode'))->delete();
+        return to_route('warehouse.items', $request->input('warehouse'));
+    }
 }
