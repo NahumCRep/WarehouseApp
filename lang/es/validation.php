@@ -175,5 +175,6 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'location'              => 'ubicación',
+        'deleteName'            => 'nombre'
     ],
 ];
