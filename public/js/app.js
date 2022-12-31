@@ -56,3 +56,25 @@ tableDeleteBtns.forEach((tableBtn) => {
     })
 });
 
+
+
+const editConfigBtn = document.querySelector('#editWarehouseBtn');
+const formInputs = document.querySelectorAll('#configInput');
+const submitDiv = document.querySelector('.submit_btn_div');
+
+editConfigBtn.addEventListener('click', () => {
+    formInputs.forEach((input) => {
+        input.toggleAttribute('disabled')
+    });
+    
+    if(editConfigBtn.value === 'false') {
+        editConfigBtn.value = 'true';
+        editConfigBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> cancelar';
+        submitDiv.style.display = 'flex';
+    }else {
+        editConfigBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> editar';
+        editConfigBtn.value = 'false';
+        submitDiv.style.display = 'none';
+    } 
+});
+

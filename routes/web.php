@@ -34,3 +34,5 @@ Route::post('/almacenes/{warehouse}', [ItemController::class, 'storeItem'])->mid
 Route::delete('/almacenes/{warehouse}', [ItemController::class, 'deleteItem'])->middleware('auth')->name('warehouse.deleteItem');
 // warehouse configuration page
 Route::get('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'configuration'])->middleware('auth')->name('warehouse.configuration');
+Route::patch('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'update'])->middleware('auth')->name('warehouse.updateWarehouse');
+Route::delete('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'delete'])->middleware('auth')->name('warehouse.deleteWarehouse');

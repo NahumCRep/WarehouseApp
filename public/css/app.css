@@ -358,3 +358,104 @@ table tr td button {
 .table_delete_btn{
     background-color: #E74C3C;
 }
+
+.configForm {
+    margin-bottom: 20px;
+}
+
+.configForm label {
+    font-weight: bolder;
+}
+
+.configForm label input,.configForm label textarea {
+    background-color: #ECF0F1;
+    border-color: #ECF0F1;
+}
+
+.configForm label textarea {
+    height: 150px;
+}
+
+.configForm_header_div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#editWarehouseBtn {
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    background-color: #212F3D;
+    color: #FFFFFF;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#editWarehouseBtn:hover {
+    background-color: #2C3E50;
+}
+
+#configSubmitBtn {
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    background-color: #2ECC71;
+    color: #0a572c;
+    border-radius: 10px;
+}
+
+#configSubmitBtn:hover {
+    background-color: #82E0AA;
+}
+
+.submit_btn_div {
+    display: flex; 
+    justify-content: flex-end;
+    display: none;
+}
+
+.configDeleteForm {
+    margin-top: 2rem;
+    /* width: 60%; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+.configDeleteForm_inputs {
+    display: flex;
+}
+
+.configDeleteForm p {
+    width: 50%;
+    font-size: 0.9rem;
+}
+
+.configDeleteForm input {
+    width: 300px;
+    padding: 7px;
+    height: 35px;
+    border: 2px solid #E5E7E9;
+}
+
+.configDeleteBtn {
+    width: 100px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-color: #212F3D;
+    color: #EC7063;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.configDeleteBtn:hover {
+    background-color: #CB4335;
+    color: #FFFFFF;
+}

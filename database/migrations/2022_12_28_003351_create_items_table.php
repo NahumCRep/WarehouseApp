@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description');
             $table->integer('stock');
-            $table->foreignId('warehouse_id')->constrained();
+            $table->foreignId('warehouse_id')->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

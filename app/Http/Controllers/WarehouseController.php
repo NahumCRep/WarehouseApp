@@ -44,4 +44,35 @@ class WarehouseController extends Controller
     public function configuration(Warehouse $warehouse) {
         return view('warehouse.configuration', ['warehouse'=>$warehouse]);
     }
+
+    public function update(Request $request, Warehouse $warehouse) {
+        $request->validate([
+            'name'          =>'required',
+            'location'      =>'required',
+            'description'   =>'required'
+        ]);
+
+        $warehouse->name        = $request->input('name');
+        $warehouse->location    = $request->input('location');
+        $warehouse->description = $request->input('description');
+
+        $warehouse->save();
+
+        return to_route('warehouse.configuration', $warehouse->id);
+    }
+
+    public function delete(Request $request, Warehouse $warehouse) {
+        // $request->validate([
+        //     'deleteName' => 'required|same:'.$warehouse->name
+        // ]);
+        $name = $request->input('deleteName');
+        if($name !== $warehouse->name){
+            return redirect()->back()->withInput()->withErrors(['deleteName' => 'El nombre no coincide']);
+        }
+
+        $warehouse->delete();
+        // Warehouse::where('id', $warehouse->id)->delete();
+
+        return to_route('warehouse');
+    }
 }
