@@ -1,14 +1,15 @@
-
+'use strict';
 // warehouse index page
-const warehouseAddBtn = document.querySelector('#btnAddWarehouse');
-const modalContainer = document.querySelector('#modal_container');
-const modalXmarkBtn = document.querySelector('#xmark_btn');
+const warehouseAddBtn   = document.querySelector('#btnAddWarehouse');
+const modalContainer    = document.querySelector('#modal_container');
+const modalXmarkBtn     = document.querySelector('#xmark_btn');
 
 // warehouse items page
 const itemOpenModalBtn  = document.querySelector('#itemModalBtn');
-const itemForm          = document.querySelector('#itemForm');
+// const itemForm          = document.querySelector('#itemForm');
 const itemDeleteForm    = document.querySelector('#delete_item_form');
 const tableDeleteBtns   = document.querySelectorAll('.table_delete_btn');
+const tableEditBtns     = document.querySelectorAll('.table_edit_btn');
 const itemName          = document.querySelector('#item_name');
 const itemCode          = document.querySelector('#itemCode');
 
@@ -30,7 +31,7 @@ warehouseAddBtn?.addEventListener('click', () => {
 
 // close modal if click anywhere outside the modal
 modalContainer.addEventListener('click', ({target}) => {
-    if(target.id) {
+    if(target.id === 'modal_container') {
         closeModal();
     }
 });
@@ -41,14 +42,30 @@ modalXmarkBtn.addEventListener('click', () => {
 
 itemOpenModalBtn?.addEventListener('click', () => {
     itemDeleteForm.style.display = 'none';
-    itemForm.style.display = 'flex';
+    // itemForm.style.display = 'flex';
     openModal();
 });
 
-tableDeleteBtns.forEach((tableBtn) => {
+
+// Table edit item buttons
+tableEditBtns.forEach((editBtn) => {
+    editBtn.addEventListener('click', () => {
+        let item = JSON.parse(editBtn.value);
+        // itemForm.style.display = 'flex';
+        itemDeleteForm.style.display = 'none';
+
+        // itemForm.setAttribute('data', true);
+        openModal();
+
+        
+    });
+});
+
+// Table delete item buttons 
+tableDeleteBtns?.forEach((tableBtn) => {
     tableBtn.addEventListener('click', (e) => {
         let item = JSON.parse(tableBtn.value);
-        itemForm.style.display = 'none';
+        // itemForm.style.display = 'none';
         itemDeleteForm.style.display = 'flex';
         itemName.innerHTML = item.name;
         itemCode.value = item.code;
@@ -62,7 +79,7 @@ const editConfigBtn = document.querySelector('#editWarehouseBtn');
 const formInputs = document.querySelectorAll('#configInput');
 const submitDiv = document.querySelector('.submit_btn_div');
 
-editConfigBtn.addEventListener('click', () => {
+editConfigBtn?.addEventListener('click', () => {
     formInputs.forEach((input) => {
         input.toggleAttribute('disabled')
     });

@@ -8,9 +8,12 @@
     --primary: 'Space Grotesk', sans-serif;
 }
 
+html {
+    font-family: var(--primary);
+}
+
 body {
     position: relative;
-    font-family: var(--primary);
 }
 
 button {
@@ -23,13 +26,13 @@ button {
 }
 
 .app_content {
-    width: 80%;
+    width: 85%;
     min-height: 100vh;
     padding: 1rem;
 }
 
 .nav {
-    width: 20%;
+    width: 15%;
     min-height: 100vh;
     background-color:#2ECC71;
 }

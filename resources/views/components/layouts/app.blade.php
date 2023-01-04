@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/f85f5cbff3.js" crossorigin="anonymous"></script>
     {{-- css --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/items_page.css') }}" />
     <title>{{ $title }}</title>
 </head>
 <body>

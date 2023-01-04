@@ -9,6 +9,13 @@ class ItemController extends Controller
 {
     //
     public function storeItem(Request $request) {
+        $request->validate([
+            'code'=>'required|unique:items,code',
+            'stock'=>'required',
+            'name'=>'required',
+            'warehouse'=>'required'
+        ]);
+
         $item = new Item;
         $item->code         = $request->input('code');
         $item->name         = $request->input('name');

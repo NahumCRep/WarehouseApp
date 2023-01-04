@@ -62,17 +62,13 @@ class WarehouseController extends Controller
     }
 
     public function delete(Request $request, Warehouse $warehouse) {
-        // $request->validate([
-        //     'deleteName' => 'required|same:'.$warehouse->name
-        // ]);
+      
         $name = $request->input('deleteName');
         if($name !== $warehouse->name){
             return redirect()->back()->withInput()->withErrors(['deleteName' => 'El nombre no coincide']);
         }
-
+        
         $warehouse->delete();
-        // Warehouse::where('id', $warehouse->id)->delete();
-
         return to_route('warehouse');
     }
 }

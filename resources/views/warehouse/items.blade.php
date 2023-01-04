@@ -1,18 +1,28 @@
 <x-layouts.app title="Items" :warehouseDashboard="$warehouse->id">
     <x-slot name="modal">
-        <x-forms.itemForm :warehouseId="$warehouse->id" />
+        {{-- <x-forms.itemForm id="itemFormModalComponent" :warehouseId="$warehouse->id" :data="false" /> --}}
         <x-forms.itemDeleteForm :warehouseId="$warehouse->id" />
     </x-slot>
 
-    <div class="warehouse_info">
-        <div class="items_header_title">
-            <i class="fa-solid fa-warehouse"></i>
-            <span>{{ $warehouse->name }}</span>
-        </div>
+    <div class="item-page-warehouse">
+        <i class="fa-solid fa-warehouse"></i>
+        <p>{{ $warehouse->name }} <span>&raquo;</span> items</p>
     </div>
-    <hr>
-    <h1>Items del Almacen</h1>
-    <hr>
+
+    <section class="item-page-form-section">
+        <div class="item_search_div">
+            <form action="" class="item_form_search">
+                <input type="text" placeholder="busca algun item ?">
+                <button type="submit" id="search_item_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class="icons_container">
+                <button><i class="fa-solid fa-user-plus"></i></button>
+            </div>
+        </div>
+        
+        <x-forms.itemForm :warehouseId="$warehouse->id" />
+    </section>
+    
     <div class="items_actions_div">
         <form action="">
             <input type="text" name="search" placeholder="buscar codigo o item">
@@ -37,20 +47,22 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$item->code}}</td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->description}}</td>
-                    <td>{{$item->stock}}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->code }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->stock }}</td>
                     <td>
-                        <button title="editar" class="table_edit_btn"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button value="{{$item}}" title="eliminar" class="table_delete_btn"><i class="fa-solid fa-trash"></i></button>
+                        <button value="{{ $item }}" title="editar" class="table_edit_btn"><i
+                                class="fa-solid fa-pen-to-square"></i></button>
+                        <button value="{{ $item }}" title="eliminar" class="table_delete_btn"><i
+                                class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    
+
     {{-- @dump($warehouse) --}}
     {{-- @dump($items) --}}
 </x-layouts.app>
