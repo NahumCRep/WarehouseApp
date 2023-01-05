@@ -1,4 +1,4 @@
-<x-layouts.app title="Configuracion" :warehouseDashboard="$warehouse->id">
+<x-layouts.app title="Configuracion" :$warehouse>
     <x-slot name="modal"></x-slot>
     <h1>Configuracion del Almacen</h1>
     <hr>

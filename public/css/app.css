@@ -159,47 +159,6 @@ button {
     color: #239B56;
 }
 
-/* MODAL COMPONENT */
-#modal_container {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 500;
-}
-
-.modal {
-    width: 300px;
-    background-color: #FFFFFF;
-    position: relative;
-    z-index: 600;
-    /* border-radius: 20px; */
-    padding: 1rem;
-}
-
-#xmark_btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    outline: none;
-    border: none;
-    background: none;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1;}
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0;}
-}
-/* end modal component */
-
 /* index warehouse page */
 .modal_bg_title {
     font-size: 1.3rem;
@@ -285,82 +244,8 @@ small {
 }
 /*  */
 
-.items_actions_div {
-    width: 100%;
-    height: 50px;
-    margin-top: 20px;
-    padding: 0 1rem;
-    /* background-color: #EBEDEF; */
-    background-color: #2C3E50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.items_actions_div button {
-    height: 30px;
-    padding: 0 0.5rem;
-    border: none;
-    outline: none;
-    background-color: #28B463;
-    color: #fff;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.items_actions_div button:hover {
-    background-color: #239B56;
-}
-
-.items_actions_div form input {
-    height: 30px;
-    padding: 0 0.5rem;
-    border: none;
-    outline: none;
-    /* border: 2px solid #28B463; */
-}
-
 /* items table */
-.items_table {
-    width: 100%;
-    color: #2C3E50;
-}
 
-table thead {
-    background-color: #2ECC71;
-}
-
-table tr {
-    height: 30px;
-}
-
-table tr > th:first-child {
-    width: 60px;
-}
-
-table tr > th:nth-child(2) {
-    width: 130px;
-}
-
-table tr td {
-    background-color: #F4F6F6;
-    text-align: center;
-}
-
-table tr td button {
-    width: 27px;
-    height: 27px;
-    outline: none;
-    border: none;
-    color: #FFFFFF;
-}
-
-.table_edit_btn {
-    background-color: #3498DB;
-}
-
-.table_delete_btn{
-    background-color: #E74C3C;
-}
 
 .configForm {
     margin-bottom: 20px;

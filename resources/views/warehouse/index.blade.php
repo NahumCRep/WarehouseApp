@@ -1,4 +1,4 @@
-<x-layouts.app title="Almacenes" :warehouseDashboard="false">
+<x-layouts.app title="Almacenes" :warehouse="false">
     <x-slot name="modal">
         <x-forms.warehouseForm />
     </x-slot>

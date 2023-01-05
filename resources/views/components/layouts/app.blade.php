@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/f85f5cbff3.js" crossorigin="anonymous"></script>
     {{-- css --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/items_page.css') }}" />
     <title>{{ $title }}</title>
 </head>
@@ -22,7 +23,7 @@
     </x-modal>
     <div class="app_main_container">
         {{-- nav --}}
-        <x-layouts.nav :warehouse="$warehouseDashboard" />
+        <x-layouts.nav :$warehouse />
         {{-- main content --}}
         <div class="app_content">
             {{ $slot }}

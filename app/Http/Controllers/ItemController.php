@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Warehouse;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -25,6 +26,11 @@ class ItemController extends Controller
         $item->save();
 
         return to_route('warehouse.items', $request->input('warehouse'));
+    }
+
+    public function itemInfo(Warehouse $warehouse, Item $item) {
+        $items = Item::where('warehouse_id', $warehouse->id)->paginate(10);
+        return view('warehouse.item', ['warehouse'=>$warehouse, 'items' => $items, 'item'=>$item]);
     }
 
     public function deleteItem(Request $request) {

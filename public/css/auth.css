@@ -107,8 +107,6 @@ input:focus {
 }
 
 .form_grid {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     display: flex;
     gap: 10px;
 }

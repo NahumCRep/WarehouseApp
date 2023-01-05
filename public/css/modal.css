@@ -1,0 +1,39 @@
+/* MODAL COMPONENT */
+#modal_container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 500;
+}
+
+.modal {
+    width: 300px;
+    background-color: #FFFFFF;
+    position: relative;
+    z-index: 600;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+#xmark_btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0;}
+}

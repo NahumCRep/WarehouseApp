@@ -6,7 +6,6 @@ const modalXmarkBtn     = document.querySelector('#xmark_btn');
 
 // warehouse items page
 const itemOpenModalBtn  = document.querySelector('#itemModalBtn');
-// const itemForm          = document.querySelector('#itemForm');
 const itemDeleteForm    = document.querySelector('#delete_item_form');
 const tableDeleteBtns   = document.querySelectorAll('.table_delete_btn');
 const tableEditBtns     = document.querySelectorAll('.table_edit_btn');
@@ -15,13 +14,13 @@ const itemCode          = document.querySelector('#itemCode');
 
 
 const closeModal = () => {
-    modalContainer.style.animation = 'fadeOut 0.8s forwards';
-    modalContainer.style.display = 'none';
+    modalContainer.style.animation  = 'fadeOut 0.8s forwards';
+    modalContainer.style.display    = 'none';
 }
 
 const openModal = () => {
-    modalContainer.style.display = 'flex';
-    modalContainer.style.animation = 'fadeIn 1s forwards';
+    modalContainer.style.display    = 'flex';
+    modalContainer.style.animation  = 'fadeIn 1s forwards';
 }
 
 // open modal
@@ -47,25 +46,10 @@ itemOpenModalBtn?.addEventListener('click', () => {
 });
 
 
-// Table edit item buttons
-tableEditBtns.forEach((editBtn) => {
-    editBtn.addEventListener('click', () => {
-        let item = JSON.parse(editBtn.value);
-        // itemForm.style.display = 'flex';
-        itemDeleteForm.style.display = 'none';
-
-        // itemForm.setAttribute('data', true);
-        openModal();
-
-        
-    });
-});
-
 // Table delete item buttons 
 tableDeleteBtns?.forEach((tableBtn) => {
     tableBtn.addEventListener('click', (e) => {
         let item = JSON.parse(tableBtn.value);
-        // itemForm.style.display = 'none';
         itemDeleteForm.style.display = 'flex';
         itemName.innerHTML = item.name;
         itemCode.value = item.code;

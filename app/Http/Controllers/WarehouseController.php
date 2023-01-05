@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Warehouse;
 use App\Models\WarehouseView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
 class WarehouseController extends Controller
@@ -37,11 +38,12 @@ class WarehouseController extends Controller
     }
 
     public function show(Warehouse $warehouse) {
-        $items = Item::where('warehouse_id', $warehouse->id)->get();
+        $items = Item::where('warehouse_id', $warehouse->id)->paginate(10);
         return view('warehouse.items', ['warehouse' => $warehouse, 'items' => $items]);
     }
 
     public function configuration(Warehouse $warehouse) {
+        // return $warehouse;
         return view('warehouse.configuration', ['warehouse'=>$warehouse]);
     }
 
