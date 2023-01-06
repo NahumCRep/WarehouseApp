@@ -19,12 +19,12 @@
     </div>
     <form 
         method="POST" 
-        :action="{{route('item.store', $warehouseId)}}" 
-        {{-- :action="{{
+        {{-- :action="{{route('item.store', $warehouseId)}}"  --}}
+        :action="{{
             !$item 
             ? route('item.store', $warehouseId)
             : route('warehouse.updateItem', ['warehouse'=>$warehouseId, 'item'=>$item])
-        }}"  --}}
+        }}" 
         class="item_form"
     >
         @if ($item)
@@ -68,9 +68,9 @@
         </div>
         <hr>
         <div class="form_footer {{$item ? 'flex_between' : ''}}">
-            {{-- @if ($item)
+            @if ($item)
                 <p class="created_at_p">registrado el {{$item->created_at->format('d/m/Y')}}</p>
-            @endif --}}
+            @endif
             <button type="submit" class="submit_btn_item">aceptar</button>
         </div>
     </form>

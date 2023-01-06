@@ -15,7 +15,7 @@ class ItemController extends Controller
         if($item->id){
             return view('warehouse.item', ['warehouse' => $warehouse, 'items' => $items, 'item'=>$item]);
         }
-        return view('item.index', ['warehouse' => $warehouse, 'items' => $items]);
+        return view('item.index', ['warehouse' => $warehouse, 'items' => $items, 'item'=>'false']);
     }
 
     public function store(Request $request, Warehouse $warehouse) {

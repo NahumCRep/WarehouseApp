@@ -1,6 +1,6 @@
 <x-layouts.itempage title="Items" :$warehouse :$items> 
     <section class="item-page-form-section">
-        @if ($item->id)
+        @if ($item != 'false')
             <x-forms.itemForm :warehouseId="$warehouse->id" :$item />
         @else
             <x-forms.itemForm :warehouseId="$warehouse->id" />
