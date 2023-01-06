@@ -8,7 +8,8 @@
         </li>
         @if ($warehouse)
             <li>
-                <a href="{{route('warehouse.items', $warehouse)}}">Items</a>
+                {{-- <a href="{{route('warehouse.items', $warehouse)}}">Items</a> --}}
+                <a href="{{route('items.index', $warehouse)}}">Items</a>
             </li>
             <li>
                 <a href="{{route('warehouse.configuration', $warehouse)}}">configuracion</a>

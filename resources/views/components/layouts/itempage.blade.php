@@ -12,15 +12,19 @@
     {{ $slot }}
 
     <section class="item_table_section">
-        
         {{-- search section --}}
         <div class="table_search_container">
             <div class="item-page-warehouse">
                 <span>&raquo;</span>
                 <p>Listado de Items</p>
             </div>
-            <form action="" class="item_form_search">
-                <input type="text" placeholder="busca algun item ?">
+            <form 
+                method="POST" 
+                :action="{{route('item.store', $warehouse)}}"
+                class="item_form_search"
+            >
+                @csrf
+                <input type="text" name="search" placeholder="busca algun item ?">
                 <button type="submit" id="search_item_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
@@ -45,8 +49,12 @@
                         <td>{{ $item->description }}</td>
                         <td>{{ $item->stock }}</td>
                         <td>
-                            <button value="{{ $item }}" onclick="window.location='{{route('warehouse.itemInfo', ['warehouse'=>$warehouse, 'item'=>$item])}}'" title="editar" class="table_edit_btn"><i
-                                    class="fa-solid fa-pen-to-square"></i></button>
+                            <button 
+                                onclick="window.location='{{route('items.index', [$warehouse, $item])}}'" 
+                                title="editar" class="table_edit_btn"
+                            >
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
                             <button value="{{ $item }}" title="eliminar" class="table_delete_btn"><i
                                     class="fa-solid fa-trash"></i></button>
                         </td>

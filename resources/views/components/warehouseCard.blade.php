@@ -1,5 +1,6 @@
 <div class="warehouse_card">
-    <a href="{{route('warehouse.items', $data->id)}}">
+    {{-- <a href="{{route('warehouse.items', $data->id)}}"> --}}
+    <a href="{{route('items.index', $data->id)}}">
         <div class="wcard_bg_title">
             <i class="fa-solid fa-warehouse"></i> 
             <span>Almacen</span>

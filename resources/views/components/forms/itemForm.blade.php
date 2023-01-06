@@ -1,4 +1,4 @@
-@props(['warehouseId','item' => false])
+@props(['warehouseId','item'=>false])
 
 <div class="item_form_container">
     <div class="page_title_container">
@@ -9,14 +9,24 @@
         @if ($item)
             <button 
                 type="button" 
-                onclick="window.location='{{route('warehouse.items', $warehouseId)}}'" 
+                onclick="window.location='{{route('items.index', $warehouseId)}}'" 
+                {{-- onclick="window.location='{{route('warehouse.items', $warehouseId)}}'"  --}}
                 class="cancel_btn"
             >
                 cancelar edicion
             </button>
         @endif
     </div>
-    <form method="POST" :action="{{ route('warehouse.itemStore', $warehouseId) }}" class="item_form">
+    <form 
+        method="POST" 
+        :action="{{route('item.store', $warehouseId)}}" 
+        {{-- :action="{{
+            !$item 
+            ? route('item.store', $warehouseId)
+            : route('warehouse.updateItem', ['warehouse'=>$warehouseId, 'item'=>$item])
+        }}"  --}}
+        class="item_form"
+    >
         @if ($item)
             @method('PATCH')
         @endif
@@ -58,9 +68,9 @@
         </div>
         <hr>
         <div class="form_footer {{$item ? 'flex_between' : ''}}">
-            @if ($item)
+            {{-- @if ($item)
                 <p class="created_at_p">registrado el {{$item->created_at->format('d/m/Y')}}</p>
-            @endif
+            @endif --}}
             <button type="submit" class="submit_btn_item">aceptar</button>
         </div>
     </form>

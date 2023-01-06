@@ -26,15 +26,25 @@ Route::post('/', [AuthController::class, 'login'])->name('login');
 Route::view('/registro', 'register')->name('register');
 Route::post('/registro', [AuthController::class, 'register'])->name('register_user');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-// warehouse and warehouse item page
-Route::get('/almacenes', [WarehouseController::class, 'index'])->middleware('auth')->name('warehouse');
-Route::post('/almacenes', [WarehouseController::class, 'store'])->middleware('auth')->name('warehouse.store');
-Route::get('/almacenes/{warehouse}', [WarehouseController::class, 'show'])->middleware('auth')->name('warehouse.items');
-Route::post('/almacenes/{warehouse}', [ItemController::class, 'storeItem'])->middleware('auth')->name('warehouse.itemStore');
-Route::delete('/almacenes/{warehouse}', [ItemController::class, 'deleteItem'])->middleware('auth')->name('warehouse.deleteItem');
-// warehouse configuration page
-Route::get('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'configuration'])->middleware('auth')->name('warehouse.configuration');
-Route::patch('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'update'])->middleware('auth')->name('warehouse.updateWarehouse');
-Route::delete('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'delete'])->middleware('auth')->name('warehouse.deleteWarehouse');
 
-Route::get('/almacenes/{warehouse}/item/{item}', [ItemController::class, 'itemInfo'])->middleware('auth')->name('warehouse.itemInfo');
+Route::middleware('auth')->group(function() {
+    // warehouse
+    Route::get('/almacenes', [WarehouseController::class, 'index'])->name('warehouse');
+    Route::post('/almacenes', [WarehouseController::class, 'store'])->name('warehouse.store');
+    // warehouse items dashboard 
+    // Route::get('/almacenes/{warehouse}/items/{item?}', [WarehouseController::class, 'items'])->name('warehouse.items');
+    
+    Route::get('/almacenes/{warehouse}/items/{item?}', [ItemController::class, 'index'])->name('items.index');
+    Route::post('/almacenes/{warehouse}/items/{item?}', [ItemController::class, 'store'])->name('item.store');
+    Route::delete('/almacenes/{warehouse}/items/{item?}', [ItemController::class, 'delete'])->name('warehouse.deleteItem');
+    
+    Route::get('/almacenes/{warehouse}/item/{item}', [ItemController::class, 'info'])->name('warehouse.item');
+    Route::patch('/almacenes/{warehouse}/item/{item}', [ItemController::class, 'update'])->name('warehouse.updateItem');
+    
+    // warehouse configuration page
+    Route::get('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'configuration'])->name('warehouse.configuration');
+    Route::patch('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'update'])->name('warehouse.updateWarehouse');
+    Route::delete('/almacenes/{warehouse}/configuracion', [WarehouseController::class, 'delete'])->name('warehouse.deleteWarehouse');
+    
+    // Route::post('/almacenes/{warehouse}', [ItemController::class, 'searchItem'])->middleware('auth')->name('item.searchItem');
+});

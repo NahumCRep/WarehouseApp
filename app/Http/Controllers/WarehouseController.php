@@ -37,13 +37,13 @@ class WarehouseController extends Controller
         return to_route('warehouse');
     }
 
-    public function show(Warehouse $warehouse) {
-        $items = Item::where('warehouse_id', $warehouse->id)->paginate(10);
-        return view('warehouse.items', ['warehouse' => $warehouse, 'items' => $items]);
+    public function items(Warehouse $warehouse) {
+        $items = Item::where('warehouse_id', $warehouse->id)->paginate(3);
+        // return view('warehouse.items', ['warehouse' => $warehouse, 'items' => $items]);
+        return view('items.index', ['warehouse' => $warehouse, 'items' => $items]);
     }
 
     public function configuration(Warehouse $warehouse) {
-        // return $warehouse;
         return view('warehouse.configuration', ['warehouse'=>$warehouse]);
     }
 
