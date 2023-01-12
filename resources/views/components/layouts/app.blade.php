@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/items_page.css') }}" />
+    @livewireStyles
     <title>{{ $title }}</title>
 </head>
 <body>
@@ -30,5 +31,6 @@
         </div>
     </div>
     <script src="{{asset('js/app.js')}}"></script>
+    @livewireScripts
 </body>
 </html>

@@ -11,7 +11,9 @@ class ItemController extends Controller
     //
     public function index(Warehouse $warehouse, Item $item) {
         // return $item->id ? 'true' : 'false';
-        $items = Item::where('warehouse_id', $warehouse->id)->paginate(3);
+        $items = Item::where('warehouse_id', $warehouse->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
         if($item->id){
             return view('warehouse.item', ['warehouse' => $warehouse, 'items' => $items, 'item'=>$item]);
         }
