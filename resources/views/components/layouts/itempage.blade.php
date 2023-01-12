@@ -7,11 +7,8 @@
         <i class="fa-solid fa-warehouse"></i>
         <p>{{ $warehouse->name }} <span>&raquo;</span> items</p>
     </div>
-
     {{-- first section space -> for form section  --}}
     {{ $slot }}
-
     {{-- items table --}}
     <livewire:show-items :warehouse="$warehouse->id" />
-    {{-- @dump($items) --}}
 </x-layouts.app>

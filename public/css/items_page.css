@@ -13,6 +13,28 @@ body {
     background-color: var(--white);
 }
 
+/* boostrap livewire pagination style */
+
+.pagination > li > a,
+.pagination > li > span {
+    color: var(--white); 
+}
+
+.pagination li button {
+    color: var(--black);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: var(--black);
+    color: #FFFFFF;
+    border-color: var(--black);
+}
+
 /* first elemente -> warehouse title */
 .item-page-warehouse {
     display: flex;
@@ -83,7 +105,6 @@ body {
 
 .item_form hr {
     margin-top: 30px;
-    border-color: var(--light-gray);
 }
 
 .form_first_side, .form_second_side {
@@ -288,7 +309,7 @@ table tr td {
     font-size: 0.9rem;
 }
 
-table tr td button {
+.table_edit_btn, .table_delete_btn {
     width: 25px;
     height: 25px;
     outline: none;
@@ -301,7 +322,7 @@ table tr td button {
     color: #3498DB;
 }
 
-.table_delete_btn{
+.table_delete_btn {
     color: #E74C3C;
 }
 
@@ -311,8 +332,6 @@ table tfoot td {
 
 
 .table_footer {
-    /* background-color: #239B56; */
-    /* height: 40px; */
     padding-top: 0.5rem;
     border-top: 1px solid var(--light-gray);
     display: flex;
@@ -321,15 +340,15 @@ table tfoot td {
     gap: 0.5rem;
 }
 
-.table_footer button {
+/* .table_footer button {
     width: 25px;
     height: 25px;
     border: 1px solid var(--light-gray);
     color: var(--darkgray);
     transition: background-color 0.3s ease-in-out;
-}
+} */
 
-.table_footer button:disabled {
+/* .table_footer button:disabled {
     transition: none;
     background-color: var(--light-gray);
     cursor: default;
@@ -337,9 +356,9 @@ table tfoot td {
 
 .table_footer button:hover {
     background-color: var(--light-gray);
-}
+} */
 
-.table_footer p {
+/* .table_footer p {
     color: var(--darkgray);
     font-size: 0.7rem;
-}
+} */

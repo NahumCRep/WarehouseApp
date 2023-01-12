@@ -13,7 +13,9 @@ class ShowItems extends Component
 
     public $warehouse;
     public $search;
-    public $perPage = 2;
+    public $perPage = 10;
+
+    protected $paginationTheme = 'bootstrap';
 
     // protected $queryString = ['search'];
 
@@ -23,12 +25,6 @@ class ShowItems extends Component
 
     public function render()
     {
-        // $items = Item::where('warehouse_id', $this->warehouse)
-        //         ->where('name', 'LIKE', "%$this->search%")
-        //         ->orWhere('code', 'LIKE', "%$this->search%")
-        //         ->orderBy('created_at', 'desc')
-        //         ->paginate(2);
-
         return view('livewire.show-items', [
             'items' => Item::where(function($sub_query){
                 $sub_query->where('warehouse_id', $this->warehouse)

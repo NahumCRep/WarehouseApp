@@ -20,12 +20,12 @@
     <table class="items_table">
         <thead>
             <tr>
-                <th>No.</th>
-                <th>codigo</th>
-                <th>item</th>
-                <th>descripcion</th>
-                <th>stock</th>
-                <th>op.</th>
+                <th class="text-center">No.</th>
+                <th class="text-center">codigo</th>
+                <th class="text-center">item</th>
+                <th class="text-center">descripcion</th>
+                <th class="text-center">stock</th>
+                <th class="text-center">action</th>
             </tr>
         </thead>
         <tbody>
@@ -54,25 +54,9 @@
         <tfoot>
             <tr>
                 <td colspan="6">
-                    <div class="table_footer">
-                        {{-- <button onclick="window.location='{{ $items->previousPageUrl() }}'"
-                            {{ $items->currentPage() <= 1 ? 'disabled' : null }}>
-                            <i class="fa-solid fa-angles-left"></i>
-                        </button>
-                        <p>{{ $items->currentPage() . ' / ' . $items->lastPage() }}</p>
-                        <button onclick="window.location='{{ $items->nextPageUrl() }}'"
-                            {{ $items->hasMorePages() ? null : 'disabled' }}>
-                            <i class="fa-solid fa-angles-right"></i>
-                        </button> --}}
-                        {{-- <a href="{{ $items->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
-                        <p>{{ $items->currentPage() . ' / ' . $items->lastPage() }}</p>
-                        <a href="{{ $items->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a> --}}
-                        {{ $items->links('livewire.pagination') }}
-                    </div>
+                    {{ $items->links() }}
                 </td>
             </tr>
         </tfoot>
     </table>
-    @dump($items->currentPage())
-    @dump($items)
 </section>

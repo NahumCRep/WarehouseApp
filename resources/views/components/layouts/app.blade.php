@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/items_page.css') }}" />
     @livewireStyles
+    @vite(['resources/js/app.js'])
     <title>{{ $title }}</title>
 </head>
 <body>

@@ -66,7 +66,7 @@
                 </label>
             </div>
         </div>
-        <hr>
+        <hr class="hr hr-blurry">
         <div class="form_footer {{$item ? 'flex_between' : ''}}">
             @if ($item)
                 <p class="created_at_p">registrado el {{$item->created_at->format('d/m/Y')}}</p>
